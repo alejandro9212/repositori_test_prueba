@@ -3,8 +3,7 @@ name: automated-testing-integration
 on:
   push:
     branches:
-      - staging
-      - master
+      - main
   workflow_dispatch:
 
 jobs:
