@@ -26,9 +26,8 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Install Dependencies
         shell: bash
-        run: |
-          Agregue aqui su comando para instalar dependencias
-          Agregue aqui su comando para otras configuraciones necesarias
+        run: mvn verify -Dtest=TestRunner
+
 
   integration-e2e-test:
     runs-on: ubuntu-latest
