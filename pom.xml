@@ -15,6 +15,8 @@
         <serenity.version>4.2.16</serenity.version>
         <junit-vintage-engine.version>5.11.4</junit-vintage-engine.version>
         <junit-platform-suite.version>1.11.4</junit-platform-suite.version>
+        <cucumber.version>7.13.0</cucumber.version>
+        <slf4j.version>2.0.7</slf4j.version>
         <cucumber-junit-platform-engine.version>7.20.1</cucumber-junit-platform-engine.version>
         <encoding>UTF-8</encoding>
         <tags>4.2.16</tags>
@@ -73,7 +75,38 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-rest-assured -->
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.10.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!--  Cucumber TestNG  -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <!--  Cucumber Core  -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-core</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <!--  Cucumber Java  -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <!--  Logging  -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+                <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-rest-assured -->
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-rest-assured</artifactId>
@@ -172,8 +205,6 @@
         </dependency>
 
 
-
-
     </dependencies>
     <build>
         <plugins>
@@ -217,7 +248,7 @@
                 <version>3.1.2</version>
                 <configuration>
                     <includes>
-                        <include>/TestRunner.java</include>
+                        <include>**/*TestRunner.java</include>
                     </includes>
                 </configuration>
             </plugin>

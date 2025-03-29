@@ -10,9 +10,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Checking Sonar Action
+        uses: actions/checkout@v2
+        with:
+                repository: alejandro9212/repositori_test_prueba
+                ref: ""
+                token: ${{ secrets.DIG_READER_GITHUB_ACCESS_TOKEN }}
+                persist-credentials: false
+                path: ./.github/actions/test-integration
+
+
 
       - name: Set up JDK 17
         uses: actions/setup-java@v3
@@ -31,7 +43,7 @@ jobs:
       - name: Install dependencies and run tests
         run: mvn clean verify -DskipTests
       - name: 🔥Ejecutar pruebas con Serenity
-        run: mvn clean verify -Dtest=TestRunner
+        run: mvn clean verify #-Dtest=TestRunner
 
       - name: 📂 Guardar reportes
         uses: actions/upload-artifact@v4
