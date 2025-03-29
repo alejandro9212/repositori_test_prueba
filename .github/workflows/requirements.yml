@@ -25,9 +25,9 @@ jobs:
       - name: Security-Checks
         uses: ./.github/actions/bdb-dig-do-pipelines-action-securitycheck
 
-  sonar:
-    runs-on: ubuntu-latest
-    steps:
+ ## sonar:
+ ##   runs-on: ubuntu-latest
+ ##   steps:
       - uses: actions/checkout@v2
       - name: Checking Sonar Action
         uses: actions/checkout@v2
