@@ -20,8 +20,6 @@ public class Login implements Task {
     private final String pass;
 
 
-
-
     public Login (String usuario, String pass) {
 
         this.usuario = usuario;
@@ -31,32 +29,25 @@ public class Login implements Task {
     }
 
 
-
-
     @Override
     @Step("{0} se autentica y acepta la alert del mensaje")
     public <T extends Actor> void performAs (T actor) {
         actor.attemptsTo(
                 //WaitUntil.the(SHADOW_HOST,isVisible()).forNoMoreThan(TIME_SHORT).seconds(),
                 Enter.theValue(usuario).into(TARGET_USUARIO),
-                Enter.theValue(pass).into(TARGET_PASWORD ),
+                Enter.theValue(pass).into(TARGET_PASWORD),
                 Click.on(TARGET_CLICK)
 
         );
 
 
-
-
     }
 
 
-    public static Login autenticLogin(String usuario, String pass){
+    public static Login autenticLogin (String usuario, String pass) {
 
         return Tasks.instrumented(Login.class, usuario, pass);
     }
-
-
-
 
 
 }
