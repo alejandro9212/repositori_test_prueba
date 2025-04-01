@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        plugin = {"pretty","html:target/cucumber-reports.html","rerun:target/rerun.txt","json:target/destination/cucumber-json"},
+        plugin = {"pretty","html:target/reports/cucumber-reports.html","rerun:target/rerun.txt","json:target/destination/cucumber-json"},
         features = "src/test/resources/features",
         glue = "www.com.automatizacion.stepdefinitions",
         tags = "@regression",
