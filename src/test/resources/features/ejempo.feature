@@ -1,3 +1,5 @@
+
+@type:regression @priority:high
 Feature:  Abrir una pagina web
 
   Yo como alejandro
@@ -7,7 +9,7 @@ Feature:  Abrir una pagina web
   Background:
     Given "alejandro" abre el sitio web de pruebas
 
-  @successful
+  @regression
   Scenario: validacion en la funcion del ID Card Elements
     And tengo usuario password validas
     When selecciona aleatoriamente alguna de las subfunciones
