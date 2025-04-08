@@ -43,7 +43,7 @@ jobs:
       - name: Install dependencies and run tests
         run: mvn clean verify -DskipTests
       - name: Ejecutar pruebas con Serenity
-        run: mvn clean verify -Dtags="@regression"
+        run: mvn clean verify
 
       - name: Guardar reportes
         uses: actions/upload-artifact@v4
