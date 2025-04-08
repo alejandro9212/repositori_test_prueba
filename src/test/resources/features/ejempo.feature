@@ -1,5 +1,4 @@
 
-@type:regression @priority:high
 Feature:  Abrir una pagina web
 
   Yo como alejandro

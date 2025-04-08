@@ -49,4 +49,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: extent-reports
-          path: target/reports/cucumber-reports.html
+          path: target/site/serenity/serenity-summary.html

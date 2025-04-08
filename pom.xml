@@ -13,79 +13,41 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <serenity.version>4.2.16</serenity.version>
-        <junit-vintage-engine.version>5.11.5</junit-vintage-engine.version>
-        <junit-platform-suite.version>1.11.5</junit-platform-suite.version>
-        <cucumber.version>7.20.0</cucumber.version>
         <slf4j.version>2.0.9</slf4j.version>
-        <cucumber-junit-platform-engine.version>7.20.1</cucumber-junit-platform-engine.version>
-        <encoding>UTF-8</encoding>
-        <tags>type:regression,priority:high</tags>
-        <cucumber.filter.tags>@successful</cucumber.filter.tags>
+        <cucumber.version>7.13.0</cucumber.version>
+        <tags>feature:@regression</tags>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-single-page-report</artifactId>
-            <version>4.2.16</version>
-        </dependency>
+        <!-- Serenity Core -->
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-core</artifactId>
             <version>${serenity.version}</version>
         </dependency>
+
+        <!-- Serenity Cucumber -->
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-cucumber</artifactId>
             <version>${serenity.version}</version>
         </dependency>
+
         <!-- Serenity Screenplay -->
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-screenplay</artifactId>
-            <version>4.2.16</version>
+            <version>${serenity.version}</version>
         </dependency>
-        <!-- Serenity JUnit -->
+
+        <!-- Serenity Reports -->
         <dependency>
             <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-junit</artifactId>
-            <version>4.2.16</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit-platform-engine</artifactId>
-            <version>7.13.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>7.13.0</version>
+            <artifactId>serenity-single-page-report</artifactId>
+            <version>${serenity.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>5.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.23.1</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.34</version>
-            <scope>provided</scope>
-        </dependency>
-
+        <!-- JUnit 4 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -93,25 +55,134 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+        <!-- Cucumber -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.5.16</version>
-            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.23.1</version>
+        </dependency>
+
+        <!-- Apache POI -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.3.0</version>
+        </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.34</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Jetty -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>12.0.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty.ee10</groupId>
+            <artifactId>jetty-ee10-servlet</artifactId>
+            <version>12.0.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty.ee10</groupId>
+            <artifactId>jetty-ee10-webapp</artifactId>
+            <version>12.0.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <version>12.0.12</version>
+        </dependency>
+
+        <!-- Servlet API -->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
+                <!-- Otros plugins como serenity-maven-plugin, jetty, etc. -->
+
+
+            <!-- Ejecutar clase main para Jetty si es necesario -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>www.com.automatizacion.utils.reporting.SimpleServer</mainClass>
+                </configuration>
+            </plugin>
+
+            <!-- Compilador -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- Plugin para ejecutar pruebas -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
+                <configuration>
+                    <includes>
+                        <include>**/TestRunner*.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+
+            <!-- Serenity Reportes -->
             <plugin>
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>
                 <version>${serenity.version}</version>
                 <configuration>
                     <tags>${tags}</tags>
-                    <reports>html,single-page-html,json,xml</reports>
+                    <reports>single-page-html</reports>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.serenity-bdd</groupId>
+                        <artifactId>serenity-single-page-report</artifactId>
+                        <version>${serenity.version}</version>
+                    </dependency>
+                </dependencies>
                 <executions>
                     <execution>
                         <id>serenity-reports</id>
@@ -122,28 +193,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M7</version>
-                <configuration>
-                    <includes>
-                        <include>**/*TestRunner.java</include>
-                    </includes>
-                    <parallel>methods</parallel>
-                    <threadCount>3</threadCount>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
-                <configuration>
-                    <source>17</source>
-                    <target>17</target>
-                </configuration>
-            </plugin>
-
         </plugins>
     </build>
 </project>
