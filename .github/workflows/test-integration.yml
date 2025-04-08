@@ -5,11 +5,9 @@ on:
     branches:
       - main
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
 
     steps:
       - name: Close Chrome processes
@@ -27,13 +25,14 @@ jobs:
           persist-credentials: false
           path: ./.github/actions/test-integration
 
-
-
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
+
+      - name: Set up Google Chrome
+        uses: browser-actions/setup-chrome@v1
 
       - name: Cache Maven dependencies
         uses: actions/cache@v3
@@ -43,8 +42,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Install dependencies and run tests
-        run: mvn clean verify -DskipTests
       - name: Ejecutar pruebas con Serenity
         run: mvn clean verify -Dtags="@regression"
 
