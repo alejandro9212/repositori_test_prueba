@@ -49,5 +49,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: serenity-reports
-          path: target/site/serenity/5df6b1f9b15439d52ca6b16355cc375fce9dbf4c5a2f1c4d395e69e7decef44c
+          path: target/site/serenity/index.html
 
