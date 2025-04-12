@@ -11,16 +11,16 @@ public class OrangehrmConstants {
     //inicio de seccion
     //ingreso Usuario
     public static final Target TARGET_USUARIO = Target.the("label_usuario")
-            .located(By.xpath("//input[@placeholder='Username']"));
+            .located(By.xpath("//input[@name='username']"));
 
 
     //ingreso passWord
     public static final Target TARGET_PASWORD = Target.the("label_pass")
-            .locatedBy("//input[@placeholder='Password']");
+            .locatedBy("//input[@name='password']");
 
     //ingreso CLICK Boton
     public static final Target TARGET_CLICK = Target.the("label_btn")
-            .locatedBy("//button[normalize-space()='Login']");
+            .locatedBy("//button[@type='submit']");
 
 
 }
