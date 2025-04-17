@@ -1,4 +1,4 @@
-/*package www.com.automatizacion.utils.reporting;
+package www.com.automatizacion.utils.reporting;
 
 
 
@@ -43,4 +43,4 @@ public class SimpleServer {
         System.out.println("Servidor iniciado en: http://localhost:8080");
         server.join();
     }
-}*/
+}
